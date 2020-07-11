@@ -6875,11 +6875,11 @@ static irqreturn_t ufshcd_intr(int irq, void *__hba)
 	spin_lock(hba->host->host_lock);
 	intr_status = ufshcd_readl(hba, REG_INTERRUPT_STATUS);
 
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 	hba->ufs_stats.last_intr_status = intr_status;
 	hba->ufs_stats.last_intr_ts = ktime_get();
->>>>>>> 8cef79dfdcc8c6f7856fb1c77bff40a05eabf42b
+//>>>>>>> 8cef79dfdcc8c6f7856fb1c77bff40a05eabf42b
 	/*
 	 * There could be max of hba->nutrs reqs in flight and in worst case
 	 * if the reqs get finished 1 by 1 after the interrupt status is
