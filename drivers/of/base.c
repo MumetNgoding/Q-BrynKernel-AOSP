@@ -166,13 +166,11 @@ void __init of_populate_phandle_cache_early(void)
 static int __init of_free_phandle_cache(void)
 {
 	unsigned long flags;
-	const char *name;
-	struct kobject *parent;
-	struct property *pp;
-	int rc;
 
-	if (!of_kset)
-		return 0;
+	raw_spin_lock_irqsave(&devtree_lock, flags);
+
+	kfree(phandle_cache);
+	phandle_cache = NULL;
 
 	raw_spin_unlock_irqrestore(&devtree_lock, flags);
 
